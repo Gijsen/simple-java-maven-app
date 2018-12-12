@@ -11,7 +11,14 @@ pipeline {
             echo "PATH = ${PATH}"
             echo "M2_HOME = ${M2_HOME}"
             '''
-            sh 'mvn help:system'
+
+
+          }
+        }
+
+        stage('Version') {
+          steps {
+            sh 'mvn --version'
           }
         }
     }
