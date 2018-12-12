@@ -5,6 +5,12 @@ pipeline {
        maven 'M3'
     }
     stages {
+        stage('Prepare') {
+          steps {
+              sh 'mv avioport/* ./ -rf'
+          }
+        }
+
         stage('Validate') {
           steps {
             sh 'mvn validate'
