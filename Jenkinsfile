@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Prepare') {
           steps {
-              sh 'mv avioport/* ./ -rf'
+              sh 'mv avioport/* ./ -f'
           }
         }
 
