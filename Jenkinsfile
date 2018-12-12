@@ -46,11 +46,5 @@ pipeline {
             sh 'mvn clean'
           }
         }
-
-        stage('Site') {
-          steps {
-            sh 'mvn site'
-          }
-        }
     }
 }
