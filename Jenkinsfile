@@ -5,20 +5,57 @@ pipeline {
        maven 'M3'
     }
     stages {
-        stage('Initialize') {
+        stage('Validate') {
           steps {
-            sh '''
-            echo "PATH = ${PATH}"
-            echo "M2_HOME = ${M2_HOME}"
-            '''
+            sh 'mvn validate'
+          }
+        }
 
+        stage('Compile') {
+          steps {
+            sh 'mvn compile'
+          }
+        }
 
+        stage('Test') {
+          steps {
+            sh 'mvn test'
+          }
+        }
+
+        stage('Package') {
+          steps {
+            sh 'mvn package'
+          }
+        }
+
+        stage('Integration test') {
+          steps {
+            sh 'mvn Integration-test'
+          }
+        }
+
+        stage('Verify') {
+          steps {
+            sh 'mvn verify'
           }
         }
 
         stage('Install') {
           steps {
             sh 'mvn install'
+          }
+        }
+
+        stage('Clean') {
+          steps {
+            sh 'mvn clean'
+          }
+        }
+
+        stage('Site') {
+          steps {
+            sh 'mvn site'
           }
         }
     }
