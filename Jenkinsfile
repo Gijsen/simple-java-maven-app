@@ -29,12 +29,6 @@ pipeline {
           }
         }
 
-        stage('Integration test') {
-          steps {
-            sh 'mvn Integration-test'
-          }
-        }
-
         stage('Verify') {
           steps {
             sh 'mvn verify'
