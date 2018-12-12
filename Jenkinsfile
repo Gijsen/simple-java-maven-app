@@ -16,9 +16,9 @@ pipeline {
           }
         }
 
-        stage('Version') {
+        stage('Install') {
           steps {
-            sh 'mvn --version'
+            sh 'mvn install'
           }
         }
     }
